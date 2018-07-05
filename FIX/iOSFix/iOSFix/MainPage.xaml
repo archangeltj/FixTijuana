@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:iOSFix"
+             xmlns:signatures="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
+             Title="FIX Inventory"
+             x:Class="iOSFix.MainPage">
+    <ScrollView>
+    <StackLayout Padding="20" >
+            <Picker x:Name="cmbUsuario" HorizontalOptions="FillAndExpand" Title="Seleccione Usuario" />
+            <Label Text="Ingrese ID de Vehiculo"  />
+        <Entry Placeholder="Ingrese ID de Vehiculo" PlaceholderColor="Aqua" x:Name="txtID" x:Uid="txtID" >
+            <Entry.Behaviors>
+                <local:Behav MaxLenght="6"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Button  Text="Buscar Vehiculo" Clicked="Button_Clicked" />
+        <Label   x:Uid="lblDatosVehculo" x:Name="lblDatosVehculo" />
+        <Label Text="Transmision"  />
+        <Picker x:Name="cmbTrans" HorizontalOptions="FillAndExpand" >
+            <Picker.Items>
+                <x:String>Manual</x:String>
+                <x:String>Automatica</x:String>
+            </Picker.Items>
+        </Picker>
+        <Label Text="Cilindros"  />
+        <Picker x:Name="cmbCilindros" HorizontalOptions="FillAndExpand" >
+            <Picker.Items>
+                <x:String>4</x:String>
+                <x:String>6</x:String>
+                <x:String>8</x:String>
+            </Picker.Items>
+        </Picker>
+        <Label Text="KM Inicial"  />
+        <Entry Placeholder="KM Inicial" PlaceholderColor="Aqua" x:Name="txtKMIni" x:Uid="txtKMIni" >
+            <Entry.Behaviors>
+                <local:Behav MaxLenght="6"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="KM Final"  />
+        <Entry Placeholder="KM Final" PlaceholderColor="Aqua" x:Name="txtKMFin" x:Uid="txtKMFin" >
+            <Entry.Behaviors>
+                <local:Behav MaxLenght="6"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="Condicion de Llantas"  />
+        <Entry Placeholder="Condicion de Llantas" PlaceholderColor="Aqua" x:Name="txtCondLlantas" x:Uid="txtCondLlantas" >
+            <Entry.Behaviors>
+                <local:Behav MaxLenght="150"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="Marca Llantas"  />
+        <Entry Placeholder="Marca Llantas" PlaceholderColor="Aqua" x:Name="txtMarcaLlantas" x:Uid="txtMarcaLlantas" >
+            <Entry.Behaviors>
+                <local:Behav MaxLenght="150"/>
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="Medida Llantas"  />
+        <Entry Placeholder="Medida Llantas" PlaceholderColor="Aqua" x:Name="txtMedidaLLantas" x:Uid="txtMedidaLLantas" >
+            <Entry.Behaviors>
+                <local:Behav MaxLenght="20"/>
+            </Entry.Behaviors>
+        </Entry>
+
+        <signatures:SignaturePadView x:Name="SignGas" BackgroundImage="img/Gasolina.jpg" StrokeWidth="5"    BackgroundImageAspect="Fill" HeightRequest="200" />
+        <Label Text="Daños Preexistentes" />
+        <Entry Placeholder="Daños Preexistentes" PlaceholderColor="Aqua" x:Name="txtDamPree" x:Uid="txtDamPree">
+            <Entry.Behaviors>
+                <local:Behav MaxLenght="250"/>
+            </Entry.Behaviors>
+        </Entry>
+        <signatures:SignaturePadView x:Name="SignDam" BackgroundImage="img/AreaD.jpg" BackgroundImageAspect="Fill" 
+                                     WidthRequest="200" HeightRequest="200" StrokeWidth="5" />
+        <Label Text="Comentarios" />
+            <Entry Placeholder="Comentarios" PlaceholderColor="Aqua" x:Name="txtComentarios" x:Uid="txtDamPree">
+                <Entry.Behaviors>
+                    <local:Behav MaxLenght="250"/>
+                </Entry.Behaviors>
+            </Entry>
+            <Label Text="Partes Exteriores" Font="Bold,15" />
+            <Label Text="Delantera Frontal" Font="Bold" />
+            <Grid ColumnSpacing="50" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="Parabrisas" Grid.Row="0" Grid.Column="0"/>
+                <Switch x:Name="chkParabrisas" x:Uid="chkParabrisas" IsToggled="True" Grid.Row="0" Grid.Column="1"/>
+                <Label Text="Parrilla" Grid.Row="0" Grid.Column="2"/>
+                <Switch x:Name="chkParrilla" x:Uid="chkParrilla" IsToggled="True" Grid.Row="0" Grid.Column="3"/>
+                <Label Text="Porta Placa" Grid.Row="1" Grid.Column="0"/>
+                <Switch x:Name="chkPortaPlaca" x:Uid="chkPortaPlaca" IsToggled="True" Grid.Row="1" Grid.Column="1"/>
+                <Label Text="B. Limpiadores" Grid.Row="1" Grid.Column="2"/>
+                <Switch x:Name="chkBLimp" x:Uid="chkBLimp" IsToggled="True" Grid.Row="1" Grid.Column="3"/>
+
+                <Label Text="Hules Limpiadores" Grid.Row="2" Grid.Column="0"/>
+                <Switch x:Name="chkHulesLimp" x:Uid="chkHulesLimp" IsToggled="True" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="Biceles" Grid.Row="2" Grid.Column="2"/>
+                <Switch x:Name="chkBiceles" x:Uid="chkBiceles" IsToggled="True" Grid.Row="2" Grid.Column="3"/>
+                <Label Text="Antena" Grid.Row="3" Grid.Column="0"/>
+                <Switch x:Name="chkAntena" x:Uid="chkAntena" IsToggled="True"  Grid.Row="3" Grid.Column="1"/>
+                <Label Text="Faros" Grid.Row="3" Grid.Column="2"/>
+                <Switch x:Name="chkFaros" x:Uid="chkFaros" IsToggled="True"  Grid.Row="3" Grid.Column="3"/>
+
+
+                <Label Text="Defensa" Grid.Row="4" Grid.Column="0"/>
+                <Switch x:Name="chkDefensa" x:Uid="chkDefensa" IsToggled="True" Grid.Row="4" Grid.Column="1"/>
+                <Label Text="Emblema" Grid.Row="4" Grid.Column="2"/>
+                <Switch x:Name="chkEmblema" x:Uid="chkEmblema" IsToggled="True" Grid.Row="4" Grid.Column="3"/>
+                <Label Text="Molduras" Grid.Row="5" Grid.Column="0"/>
+                <Switch x:Name="chkMolduras" x:Uid="chkMolduras" IsToggled="True"  Grid.Row="5" Grid.Column="1"/>
+                <Label Text="Cofre"  Grid.Row="5" Grid.Column="2"/>
+                <Switch x:Name="chkCofre" x:Uid="chkCofre" IsToggled="True"  Grid.Row="5" Grid.Column="3"/>
+
+                <Label Text="Costado Derecho"  Font="Bold" Grid.Row="6" Grid.Column="0"/>
+                <Label Text="Aleta" Grid.Row="7" Grid.Column="0"/>
+                <Switch x:Name="chkAletaD" x:Uid="chkAletaD" IsToggled="True" Grid.Row="7" Grid.Column="1" />
+                <Label Text="Tapones Llantas"  Grid.Row="7" Grid.Column="2"/>
+                <Switch x:Name="chkTapLlantD" x:Uid="chkTapLlantD" IsToggled="True" Grid.Row="7" Grid.Column="3" />
+                <Label Text="Cristales Puertas" Grid.Row="8" Grid.Column="0"/>
+                <Switch x:Name="chkCrisPuertD" x:Uid="chkCrisPuertD" IsToggled="True"  Grid.Row="8" Grid.Column="1"/>
+                <Label Text="Tapon de Gasolina"  Grid.Row="8" Grid.Column="2"/>
+                <Switch x:Name="chkTapGasD" x:Uid="chkTapGasD" IsToggled="True"  Grid.Row="8" Grid.Column="3"/>
+                <Label Text="Manijas" Grid.Row="9" Grid.Column="0"/>
+                <Switch x:Name="chkManijasD" x:Uid="chkManijasD" IsToggled="True" Grid.Row="9" Grid.Column="1" />
+                <Label Text="Reflejantes"  Grid.Row="9" Grid.Column="2"/>
+                <Switch x:Name="chkReflejantesD" x:Uid="chkReflejantesD" IsToggled="True" Grid.Row="9" Grid.Column="3" />
+                <Label Text="Puertas" Grid.Row="10" Grid.Column="0"/>
+                <Switch x:Name="chkPuertasD" x:Uid="chkPuertasD" IsToggled="True"  Grid.Row="10" Grid.Column="1"/>
+                <Label Text="Emblemas"  Grid.Row="10" Grid.Column="2"/>
+                <Switch x:Name="chkEmblemasD" x:Uid="chkEmblemasD" IsToggled="True"  Grid.Row="10" Grid.Column="3"/>
+                <Label Text="Espejo Lateral" Grid.Row="11" Grid.Column="0"/>
+                <Switch x:Name="chkEspLatD" x:Uid="chkEspLatD" IsToggled="True" Grid.Row="11" Grid.Column="1" />
+                <Label Text="Loderas"  Grid.Row="11" Grid.Column="2"/>
+                <Switch x:Name="chkLoderasD" x:Uid="chkLoderasD" IsToggled="True" Grid.Row="11" Grid.Column="3" />
+                <Label Text="Molduras" Grid.Row="12" Grid.Column="0"/>
+                <Switch x:Name="chkMoldurasD" x:Uid="chkMoldurasD" IsToggled="True"  Grid.Row="12" Grid.Column="1"/>
+                <Label Text="Chapas Puertas"  Grid.Row="12" Grid.Column="2"/>
+                <Switch x:Name="chkChapD" x:Uid="chkChapD" IsToggled="True"  Grid.Row="12" Grid.Column="3"/>
+                <Label Text="Llantas" Grid.Row="13" Grid.Column="0"/>
+                <Switch x:Name="chkLlantasD" x:Uid="chkLlantasD" IsToggled="True"  Grid.Row="13" Grid.Column="1"/>
+
+
+                <Label Text="Costado Izquierdo"  Font="Bold" Grid.Row="14" Grid.Column="0"/>
+                <Label Text="Aleta" Grid.Row="15" Grid.Column="0"/>
+                <Switch x:Name="chkAletaI" x:Uid="chkAletaI" IsToggled="True" Grid.Row="15" Grid.Column="1" />
+                <Label Text="Tapones Llantas"  Grid.Row="15" Grid.Column="2"/>
+                <Switch x:Name="chkTapLlantI" x:Uid="chkTapLlantI" IsToggled="True" Grid.Row="15" Grid.Column="3" />
+                <Label Text="Cristales Puertas" Grid.Row="16" Grid.Column="0"/>
+                <Switch x:Name="chkCrisPuertI" x:Uid="chkCrisPuertI" IsToggled="True"  Grid.Row="16" Grid.Column="1"/>
+                <Label Text="Tapon de Gasolina"  Grid.Row="16" Grid.Column="2"/>
+                <Switch x:Name="chkTapGasI" x:Uid="chkTapGasI" IsToggled="True"  Grid.Row="16" Grid.Column="3"/>
+                <Label Text="Manijas" Grid.Row="17" Grid.Column="0"/>
+                <Switch x:Name="chkManijasI" x:Uid="chkManijasI" IsToggled="True" Grid.Row="17" Grid.Column="1" />
+                <Label Text="Reflejantes"  Grid.Row="17" Grid.Column="2"/>
+                <Switch x:Name="chkReflejantesI" x:Uid="chkReflejantesI" IsToggled="True" Grid.Row="17" Grid.Column="3" />
+                <Label Text="Puertas" Grid.Row="18" Grid.Column="0"/>
+                <Switch x:Name="chkPuertasI" x:Uid="chkPuertasI" IsToggled="True"  Grid.Row="18" Grid.Column="1"/>
+                <Label Text="Emblemas"  Grid.Row="18" Grid.Column="2"/>
+                <Switch x:Name="chkEmblemasI" x:Uid="chkEmblemasI" IsToggled="True"  Grid.Row="18" Grid.Column="3"/>
+                <Label Text="Espejo Lateral" Grid.Row="19" Grid.Column="0"/>
+                <Switch x:Name="chkEspLatI" x:Uid="chkEspLatI" IsToggled="True" Grid.Row="19" Grid.Column="1" />
+                <Label Text="Loderas"  Grid.Row="19" Grid.Column="2"/>
+                <Switch x:Name="chkLoderasI" x:Uid="chkLoderasI" IsToggled="True" Grid.Row="19" Grid.Column="3" />
+                <Label Text="Molduras" Grid.Row="20" Grid.Column="0"/>
+                <Switch x:Name="chkMoldurasI" x:Uid="chkMoldurasI" IsToggled="True"  Grid.Row="20" Grid.Column="1"/>
+                <Label Text="Chapas Puertas"  Grid.Row="20" Grid.Column="2"/>
+                <Switch x:Name="chkChapI" x:Uid="chkChapI" IsToggled="True"  Grid.Row="20" Grid.Column="3"/>
+                <Label Text="Llantas" Grid.Row="21" Grid.Column="0"/>
+                <Switch x:Name="chkLlantasI" x:Uid="chkLlantasI" IsToggled="True"  Grid.Row="21" Grid.Column="1"/>
+
+
+                <Label Text="Trasera"  Font="Bold" Grid.Row="22" Grid.Column="0"/>
+                <Label Text="Medallon" Grid.Row="23" Grid.Column="0"/>
+                <Switch x:Name="chkMedallon"  IsToggled="True"  Grid.Row="23" Grid.Column="1"/>
+                <Label Text="Gato"  Grid.Row="23" Grid.Column="2"/>
+                <Switch x:Name="chkGato" IsToggled="True"  Grid.Row="23" Grid.Column="3"/>
+                <Label Text="Micas Calaveras" Grid.Row="24" Grid.Column="0"/>
+                <Switch x:Name="chkCalaveras"  IsToggled="True"  Grid.Row="24" Grid.Column="1"/>
+                <Label Text="Llanta de Refaccion"  Grid.Row="24" Grid.Column="2"/>
+                <Switch x:Name="chkRefaccion" IsToggled="True"  Grid.Row="24" Grid.Column="3"/>
+                <Label Text="Defensa" Grid.Row="25" Grid.Column="0"/>
+                <Switch x:Name="chkDefensaB"  IsToggled="True"  Grid.Row="25" Grid.Column="1"/>
+                <Label Text="Porta Placa"  Grid.Row="25" Grid.Column="2"/>
+                <Switch x:Name="chkPlacaB" IsToggled="True"  Grid.Row="25" Grid.Column="3"/>
+                <Label Text="Emblemas" Grid.Row="26" Grid.Column="0"/>
+                <Switch x:Name="chkEmblemasB"  IsToggled="True"  Grid.Row="26" Grid.Column="1"/>
+                <Label Text="Limpiador"  Grid.Row="26" Grid.Column="2"/>
+                <Switch x:Name="chkLimpiadorB" IsToggled="True"  Grid.Row="26" Grid.Column="3"/>
+                <Label Text="Chapa Cajuela" Grid.Row="27" Grid.Column="0"/>
+                <Switch x:Name="chkChapaB"  IsToggled="True"  Grid.Row="27" Grid.Column="1"/>
+                <Label Text="Extintor"  Grid.Row="27" Grid.Column="2"/>
+                <Switch x:Name="chkExtintor" IsToggled="True"  Grid.Row="27" Grid.Column="3"/>
+                <Label Text="Molduras" Grid.Row="28" Grid.Column="0"/>
+                <Switch x:Name="chkMoldurasB"  IsToggled="True"  Grid.Row="28" Grid.Column="1"/>
+                <Label Text="Alfombra"  Grid.Row="28" Grid.Column="2"/>
+                <Switch x:Name="chkAlfombraB" IsToggled="True"  Grid.Row="28" Grid.Column="3"/>
+                <Label Text="Herramientas" Grid.Row="29" Grid.Column="0"/>
+                <Switch x:Name="chkHerramientas"  IsToggled="True"  Grid.Row="29" Grid.Column="1"/>
+
+
+                <Label Text="Partes Interiores" Font="Bold,15" Grid.Row="30"/>
+                <Label Text="Delantera Frontal" Font="Bold" Grid.Row="31"/>
+                <Label Text="Radio AM o FM" Grid.Row="32" Grid.Column="0"/>
+                <Switch x:Name="chkRadio"  IsToggled="True"  Grid.Row="32" Grid.Column="1"/>
+                <Label Text="Cenicero"  Grid.Row="32" Grid.Column="2"/>
+                <Switch x:Name="chkCenicero" IsToggled="True"  Grid.Row="32" Grid.Column="3"/>
+                <Label Text="Compact Disc" Grid.Row="33" Grid.Column="0"/>
+                <Switch x:Name="chkCD"  IsToggled="True"  Grid.Row="33" Grid.Column="1"/>
+                <Label Text="Juego de Tapetes"  Grid.Row="33" Grid.Column="2"/>
+                <Switch x:Name="chkTapetes" IsToggled="True"  Grid.Row="33" Grid.Column="3"/>
+                <Label Text="Equalizador" Grid.Row="34" Grid.Column="0"/>
+                <Switch x:Name="chkEqualizador"  IsToggled="True"  Grid.Row="34" Grid.Column="1"/>
+                <Label Text="Bocinas"  Grid.Row="34" Grid.Column="2"/>
+                <Switch x:Name="chkBocinas" IsToggled="True"  Grid.Row="34" Grid.Column="3"/>
+                <Label Text="Reloj" Grid.Row="35" Grid.Column="0"/>
+                <Switch x:Name="chkReloj"  IsToggled="True"  Grid.Row="35" Grid.Column="1"/>
+                <Label Text="Consolas"  Grid.Row="35" Grid.Column="2"/>
+                <Switch x:Name="chkConsolas" IsToggled="True"  Grid.Row="35" Grid.Column="3"/>
+                <Label Text="Espejo Retrovisor" Grid.Row="36" Grid.Column="0"/>
+                <Switch x:Name="chkRetrovisor"  IsToggled="True"  Grid.Row="36" Grid.Column="1"/>
+                <Label Text="Seguros"  Grid.Row="36" Grid.Column="2"/>
+                <Switch x:Name="chkSeguros" IsToggled="True"  Grid.Row="36" Grid.Column="3"/>
+                <Label Text="Miseras" Grid.Row="37" Grid.Column="0"/>
+                <Switch x:Name="chkMiseras"  IsToggled="True"  Grid.Row="37" Grid.Column="1"/>
+                <Label Text="Cinturones de Seguridad"  Grid.Row="37" Grid.Column="2"/>
+                <Switch x:Name="chkCinturones" IsToggled="True"  Grid.Row="37" Grid.Column="3"/>
+                <Label Text="Encendedor" Grid.Row="38" Grid.Column="0"/>
+                <Switch x:Name="chkEncendedor"  IsToggled="True"  Grid.Row="38" Grid.Column="1"/>
+                <Label Text="Plafon Central"  Grid.Row="38" Grid.Column="2"/>
+                <Switch x:Name="chkPlafon" IsToggled="True"  Grid.Row="38" Grid.Column="3"/>
+
+
+                <Label Text="Motor" Font="Bold" Grid.Row="39"/>
+                <Label Text="Acumulador" Grid.Row="40" Grid.Column="0"/>
+                <Switch x:Name="chkAcumulador"  IsToggled="True"  Grid.Row="40" Grid.Column="1"/>
+                <Label Text="Licuadora"  Grid.Row="40" Grid.Column="2"/>
+                <Switch x:Name="chkLicuadora" IsToggled="True"  Grid.Row="40" Grid.Column="3"/>
+                <Label Text="Tapon de Agua" Grid.Row="41" Grid.Column="0"/>
+                <Switch x:Name="chkTaponAgua"  IsToggled="True"  Grid.Row="41" Grid.Column="1"/>
+                <Label Text="Computadoras"  Grid.Row="41" Grid.Column="2"/>
+                <Switch x:Name="chkComputadoras" IsToggled="True"  Grid.Row="41" Grid.Column="3"/>
+                <Label Text="Tapon de Aceite" Grid.Row="42" Grid.Column="0"/>
+                <Switch x:Name="chkTaponAceite"  IsToggled="True"  Grid.Row="42" Grid.Column="1"/>
+                <Label Text="Filtro"  Grid.Row="42" Grid.Column="2"/>
+                <Switch x:Name="chkFiltro" IsToggled="True"  Grid.Row="42" Grid.Column="3"/>
+                <Label Text="Alternador" Grid.Row="43" Grid.Column="0"/>
+                <Switch x:Name="chkAlternador"  IsToggled="True"  Grid.Row="43" Grid.Column="1"/>
+                <Label Text="Deposito de Agua"  Grid.Row="43" Grid.Column="2"/>
+                <Switch x:Name="chkDepositoAgua" IsToggled="True"  Grid.Row="43" Grid.Column="3"/>
+                <Label Text="Marcha" Grid.Row="44" Grid.Column="0"/>
+                <Switch x:Name="chkMarcha"  IsToggled="True"  Grid.Row="44" Grid.Column="1"/>
+                <Label Text="Bandas"  Grid.Row="44" Grid.Column="2"/>
+                <Switch x:Name="chkBandas" IsToggled="True"  Grid.Row="44" Grid.Column="3"/>
+                <Label Text="Bayonetas" Grid.Row="45" Grid.Column="0"/>
+                <Switch x:Name="chkBayonetas"  IsToggled="True"  Grid.Row="45" Grid.Column="1"/>
+                <Label Text="Mangueras"  Grid.Row="45" Grid.Column="2"/>
+                <Switch x:Name="chkMangueras" IsToggled="True"  Grid.Row="45" Grid.Column="3"/>
+                <Label Text="Compresor de Aire" Grid.Row="46" Grid.Column="0"/>
+                <Switch x:Name="chkCompresor"  IsToggled="True"  Grid.Row="46" Grid.Column="1"/>
+                <Label Text="Varios"  Grid.Row="46" Grid.Column="2"/>
+                <Switch x:Name="chkVarios" IsToggled="True"  Grid.Row="46" Grid.Column="3"/>
+
+            </Grid>
+            <Label Text="Firma Cliente" />
+            <signatures:SignaturePadView x:Name="SignFirmaCliente" WidthRequest="200" HeightRequest="200" StrokeWidth="5" />
+            <Label Text="Firma Taller" />
+            <signatures:SignaturePadView x:Name="SignFirmaTaller"  WidthRequest="200" HeightRequest="200" StrokeWidth="5" />
+
+            <Button x:Name="btnSave" Clicked="btnSave_Clicked" IsEnabled="False" Text="Guardar" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

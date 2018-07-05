@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controles="clr-namespace:Xamarin.Controls;assembly=SignaturePad;"
+             x:Class="iOSFix.ViewSign">
+  <ContentView.Content>
+      <Grid>
+          <Label Text="Hello Xamarin.Forms!" />
+            <controles:SignaturePadView x:Name="SignPad" />
+        </Grid>
+  </ContentView.Content>
+</ContentView>
